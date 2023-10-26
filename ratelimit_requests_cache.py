@@ -18,7 +18,7 @@ class RateLimitIfNotCachedDecorator(RateLimitDecorator):
 
     def __call__(self, func):
         @wraps(func)
-        def wrapper(*args, **kargs):
+        def wrapper(*args, **kwargs):
             with self.lock:
                 period_remaining = self.period - (self.clock() - self.last_reset)
 
@@ -28,7 +28,7 @@ class RateLimitIfNotCachedDecorator(RateLimitDecorator):
                     self.last_reset = self.clock()
 
                 # Increase the number of attempts to call the function.
-                result = func(*args, **kargs)
+                result = func(*args, **kwargs)
 
                 # Only count towards the rate limit if results are not from the cache
                 if not result.from_cache:
