@@ -1,7 +1,7 @@
 """
 A small module that combines the best bits of the requests_cache and ratelimit modules.
 It offers a similar ratelimiter to the one provided by the ratelimit module,
-but this one only counts invocations that can not served from the local cache.
+but this one only counts invocations that can not be served from the local cache.
 """
 from functools import wraps
 
@@ -12,6 +12,10 @@ from ratelimit.decorators import RateLimitDecorator, sleep_and_retry
 
 
 class RateLimitIfNotCachedDecorator(RateLimitDecorator):
+    """
+    A modified version of the original RateLimitDecorator by tomasbasham found here:
+    https://github.com/tomasbasham/ratelimit/blob/master/ratelimit/decorators.py
+    """
 
     def __init__(self, *a, **k):
         super(RateLimitIfNotCachedDecorator, self).__init__(*a, **k)
