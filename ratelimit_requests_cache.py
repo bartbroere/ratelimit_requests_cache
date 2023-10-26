@@ -52,7 +52,7 @@ limits_if_not_cached = RateLimitIfNotCachedDecorator
 if __name__ == '__main__':
     # Decorate a method to use a cache
     @sleep_and_retry
-    @limits_if_not_cached(calls=10, period=10)
+    @limits_if_not_cached(calls=1, period=1)  # 1 req / s
     def get_from_httpbin(i):
         return requests.get(f'https://httpbin.org/anything?i={i}')
   
