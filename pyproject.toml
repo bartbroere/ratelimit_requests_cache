@@ -1,6 +1,6 @@
 [project]
 name = "ratelimit_requests_cache"
-version = "2023.10.26"
+version = "2023.10.27"
 description = "Ratelimit Python requests, but only if they're not served from the cache"
 authors = [
     {name = "Bart Broere", email = "mail@bartbroere.eu"},
@@ -8,7 +8,7 @@ authors = [
 dependencies = ["requests_cache", "ratelimit"]
 requires-python = ">=3.8"
 readme = "README.md"
-license = {text = "0"}
+license = {text = "MIT"}
 
 [build-system]
 requires = ["pdm-backend"]
