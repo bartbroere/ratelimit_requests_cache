@@ -1,6 +1,6 @@
 [project]
 name = "ratelimit_requests_cache"
-version = "2023.10.27"
+version = "2023.10.30"
 description = "Ratelimit Python requests, but only if they're not served from the cache"
 authors = [
     {name = "Bart Broere", email = "mail@bartbroere.eu"},
